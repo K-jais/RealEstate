@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+        <a class="navbar-brand" href="/">Aashiyana</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" ></span>
+        </button>
+      </nav>
+    <div style="margin:15px;padding-bottom: 10px;border-bottom: 1.5px solid grey;" class="top">
+        <div style="display: flex;justify-content: center;align-items: center;">
+            <img style="width:100px;height:100px" src='./images/profile.gif'>
+        </div>
+        <div style="display: flex;justify-content: center;align-items: center;margin-top:10px">
+            <h1>ID : <span style="color: #6366f1;"><%= result[0].AGENT_ID %></span></h1>
+        </div>
+        <div style="display: flex;justify-content: center;align-items: center;margin-top:10px">
+            <h1>Name : <span style="color: #6366f1;"><%= result[0].NAME %></span></h1>
+        </div>
+        <div style="display: flex;justify-content: center;align-items: center;margin-top:10px">
+            <h1>City : <span style="color: #6366f1;"><%= result[0].CITY %></span></h1>
+        </div>
+        <div style="display: flex;justify-content: center;align-items: center;margin-top:10px">
+            <h1>Email : <span style="color: #6366f1;"><%= result[0].EMAIL %></span></h1>
+        </div>
+        <div style="display: flex;justify-content: center;align-items: center;margin-top:10px">
+            <h1>Phone : <span style="color: #6366f1;"><%= result[0].PHONE %></span></h1>
+        </div>
+    </div>
+    <div style="margin:15px;padding-bottom: 10px;border-bottom: 1.5px solid grey;" class="property">
+        <div style="display: flex;justify-content: center;align-items: center;margin:10px 0px">
+            <h1 style="color:#6366f1;font-size: 35px;border-bottom: 1.5px solid #6366f1;">PROPERTIES</h1>
+        </div>
+        <% if(result2.length != 0){ %>
+        <div class="flex flex-wrap -m-4">
+            <% for(let i=0;i< result2.length; i++){ %>
+            <div class="xl:w-1/4 md:w-1/2 p-4">
+              <div class="bg-gray-100 p-6 rounded-lg">
+                <img class="h-40 rounded w-full object-cover object-center mb-6" src="http://localhost:3000<%= images[i] %>" alt="content">
+                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font"><%= result2[i].P_TYPE%></h3>
+                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">ID - <span><%= result2[i].PROP_ID%></span></h3>
+                <h2 class="text-lg text-gray-900 font-medium title-font mb-4"><%= result2[i].ADDRESS %></h2>
+                <p class="leading-relaxed text-base">₹ <span><span><%= result2[i].PRICE %></span></span></p>
+              </div>
+            </div>
+            <%}%>
+        </div>
+        <%}else{%>
+            <h1 style="color:#6366f1">NO AVAILABLE PROPERTIES</h1>
+        <%}%>    
+    </div>
+    <div style="margin:15px;padding-bottom: 10px;border-bottom: 1.5px solid grey;" class="transaction">
+        <div style="display: flex;justify-content: center;align-items: center;margin:10px 0px">
+            <h1 style="color:#6366f1;font-size: 35px;border-bottom: 1.5px solid #6366f1;">TRANSACTION</h1>
+        </div>
+        <div>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">TRANSACTION_ID</th>
+                    <th scope="col">AMOUNT</th>
+                    <th scope="col">YEAR</th>
+                    <th scope="col">PROP ID</th>
+                    <th scope="col">PROP TYPE</th>
+                    <th scope="col">FLAT SIZE</th>
+                    <th scope="col">LOCATION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(let i=0;i< result1.length; i++){ %>  
+                  <tr>
+                    <th scope="row"><%= (i+1) %></th>
+                    <td><%= result1[i].TRANSACTION_ID %></td>
+                    <td>₹ <span><%= result1[i].AMOUNT %></span></td>
+                    <td><%= result1[i].YEAR %></td>
+                    <td><%= result1[i].PROP_ID %></td>
+                    <td><%= result1[i].P_TYPE %></td>
+                    <td><%= result1[i].SIZE %></td>
+                    <td><%= result1[i].LOCATION %></td>
+                  </tr>
+                  <%}%>
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <div style="margin:15px;padding-bottom: 10px;border-bottom: 1.5px solid grey;" class="make_transaction">
+        <div style="display: flex;justify-content: center;align-items: center;margin:10px 0px">
+            <h1 style="color:#6366f1;font-size: 35px;border-bottom: 1.5px solid #6366f1;">MAKE TRANSACTION</h1>
+        </div>
+        <div style="display: flex;justify-content: center;align-items: center;margin:30px 0px">
+            <form action="/make-transaction" method="POST" class="row g-3">
+                <div class="col-auto">
+                  <input type="text" name="property_id" class="form-control" id="inputPassword2" placeholder="Property Id" required>
+                  <input type="hidden" name="agent_id" value="<%= result[0].AGENT_ID %>">
+                </div>
+                <div class="col-auto">
+                  <button style="background-color: #6366f1!important;" type="submit" class="btn btn-primary mb-3">Submit</button>
+                </div>
+              </form>
+        </div>
+    </div>
+    <footer style="font-size: x-large; text-decoration: none; width: 100%; text-align: center; background-color: darkgrey;">
+        <a href="#navbarSupportedContent" style="text-decoration: none;" class="f">@DBMSProject-Group-39</a>
+    </footer>
+</body>
+</html>

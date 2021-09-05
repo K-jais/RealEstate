@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+        <a class="navbar-brand" href="/">Aashiyana</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" ></span>
+        </button>
+      </nav>
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap w-full mb-20">
+        <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+          <h1 style="font-size:37px;font-weight:600" class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">PROPERTIES TO BUY</h1>
+          <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+        </div>
+        <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Everyone wants a piece of land. It’s the only sure investment. It can never depreciate like a car or washing machine. Land will only double its value in ten years. <span style="margin-left:15px;font-weight: 600;">– Sam Shepard</span></p>
+      </div>
+      <div class="flex flex-wrap -m-4">
+        <% for(let i=0;i< result.length;i++){ %>
+        <div class="xl:w-1/4 md:w-1/2 p-4">
+          <a style="text-decoration: none;" href="/property/<%= result[i].PROP_ID %>/<%= i %>/index"><div class="bg-gray-100 p-6 rounded-lg">
+            <img class="h-40 rounded w-full object-cover object-center mb-6" src="http://localhost:3000<%= images[i] %>" alt="content">
+            <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font"><%= result[i].P_TYPE%></h3>
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-4"><%= result[i].ADDRESS %></h2>
+            <p class="leading-relaxed text-base">₹ <span><span><%= result[i].PRICE %></span></span></p>
+          </div></a>
+        </div>
+        <%}%>
+      </div>
+    </div>
+  </section>
+  <footer style="font-size: x-large; text-decoration: none; width: 100%; text-align: center; background-color: darkgrey;">
+    <a href="#navbarSupportedContent" style="text-decoration: none;" class="f">@DBMSProject-Group-39</a>
+</footer>
+</body>
+</html>

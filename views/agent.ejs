@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background-image: url("images/15.jpg");
+            background-color: #cccccc;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-attachment: fixed;
+        }
+        #id1{
+            background-color: white;
+            opacity: 0.9;
+            margin: auto;
+            width: 45%;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 5px;
+            padding-bottom: 30px;
+        }
+    </style>
+
+</head>
+<body>
+<section class="my-5" id="id1">
+    <div class="py-5">
+        <h2 class="text-center" style="font-size: 35px;">AGENT</h2>
+    </div>
+    <div class="w-50 m-auto">
+    <form action="/agent" method="post" style="margin-bottom: 30px;">
+            <div class="form-group">
+                <label>Agent_ID</label>
+                <input type="text" name="user" autocomplete="off" class="form-control">
+            </div>   
+            <!-- <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="email" autocomplete="off" class="form-control">
+            </div> 
+            <div class="form-group">
+                <label>Mobile_No</label>
+                <input type="text" name="mobile" autocomplete="off" class="form-control">
+            </div> 
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" name="mobile" autocomplete="off" class="form-control">
+            </div> 
+            <div class="form-group">
+                <label>Property_ID</label>
+                <input type="text" name="mobile" autocomplete="off" class="form-control">
+            </div>  -->
+            <button type="submit" class="btn btn-danger">Submit</button>  
+    </form>
+    </div>
+
+</section>
+</body>
+</html>
+    
